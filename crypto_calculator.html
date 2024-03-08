@@ -1,0 +1,73 @@
+<div class="calculator-container">
+    <label for="payout">Payout ( $1 USD = 1 USDT)</label>
+    <input type="number" id="payout" class="cal-input" placeholder="Enter amount">
+
+    <label for="cryptoDepositFee">Crypto Exchange Deposit Fee</label>
+    <select id="cryptoDepositFee">
+        <option value="" disabled selected>Select deposit method</option>
+        <option value="achCBD">Coinbase ACH</option>
+        <option value="wireCBD">Coinbase Wire (USD)</option>
+        <option value="sepaCBD">Coinbase SEPA (EUR)</option>
+        <option value="swiftCBD">Coinbase Swift (GBP)</option>
+        <option value="customDeposit">Custom amount</option>
+    </select>
+    <div class="fee-line">
+        <input type="number" id="cryptoDepositPercentage" class="cal-input" placeholder="Percentage fee">
+        <div class="to-text">+</div>
+        <input type="number" id="cryptoDepositFixed" class="cal-input" placeholder="Fixed fee (USD)">
+    </div>
+
+    <label for="cryptoFee">Taker/ Maker fee (1bps = 0.01%)</label>
+    <select id="tierCoinbase">
+        <option value="" disabled selected>Select transfer range. If unsure, select Taker.</option>
+        <option value="tier1T">$0K-$10K - Taker - 60bps</option>
+        <option value="tier2T">$10K-$50K - Taker - 40bps</option>
+        <option value="tier3T">$50K-$100K - Taker - 25bps</option>
+        <option value="tier1M">$0K-$10K - Maker - 40bps</option>
+        <option value="tier2M">$10K-$50K - Maker - 25bps</option>
+        <option value="tier3M">$50K-$100K - Maker - 15bps</option>
+        <option value="customTier">Custom amount</option>
+    </select>
+    <input type="number" id="cryptoFee" class="cal-input" placeholder="Enter taker or maker fee">
+
+    <label for="convertRate">Currency Conversion: USDT to your desired currency</label>
+    <div class="fee-line">
+        <input type="number" id="coin1" class="cal-input" value="1" readonly>
+        <div class="to-text">to</div>
+        <input type="number" id="coin2" class="cal-input" placeholder="Enter fiat currency" value="7.2">
+    </div>
+
+    <label for="cryptoWithdrawalFee">Crypto Exchange Withdrawal Fee</label>
+    <select id="cryptoWithdrawalFee">
+        <option value="" disabled selected>Select payment method</option>
+        <option value="achCBW">Coinbase ACH</option>
+        <option value="wireCBW">Coinbase Wire (USD)</option>
+        <option value="sepaCBW">Coinbase SEPA (EUR)</option>
+        <option value="swiftCBW">Coinbase Swift (GBP)</option>
+        <option value="customWithdraw">Custom amount</option>
+    </select>
+    <div class="fee-line">
+        <input type="number" id="cryptoWithdrawalPercentage" class="cal-input" placeholder="Percentage fee">
+        <div class="to-text">+</div>
+        <input type="number" id="cryptoWithdrawalFixed" class="cal-input" placeholder="Fixed fee (USD)">
+    </div>
+
+    <label for="walletDepositFee">Wise Deposit Fee (USD)</label>
+    <select id="walletDepositFee">
+        <option value="" disabled selected>Select payment method</option>
+        <option value="achWiseD">Free - ACH</option>
+        <option value="bankWiseD">Free - receive AUD, CAD, EUR, GBP, HUF, NZD, RON, SGD, TRY and USD</option>
+        <option value="wireWiseD">USD wire payments</option>
+        <option value="customWallet">Custom amount</option>
+    </select>
+    <div class="fee-line">
+        <input type="number" id="walletDepositPercentage" class="cal-input" placeholder="Percentage fee">
+        <div class="to-text">+</div>
+        <input type="number" id="walletDepositFixed" class="cal-input" placeholder="Fixed fee (USD)">
+    </div>
+
+    <button class="button cc-cta w-button" onclick="calculateFees()">Calculate</button>
+    <p id="totalCryptoFee">Crypto transaction fees (USD): $0.00</p>
+    <p id="totalFee">Total fees (USD): $0.00</p>
+    <p id="totalEarning">Total earnings in wallet: $0.00</p>
+</div>
